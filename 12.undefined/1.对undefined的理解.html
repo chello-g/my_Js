@@ -1,0 +1,231 @@
+<!--
+ * @Author: your name
+ * @Date: 2022-04-10 12:35:17
+ * @LastEditTime: 2022-04-10 13:50:40
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \my_js\12.undefined\1.undefined理解.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="javascript:void(0)">我是a标签</a>
+  <script>
+    // 1. undefined 既是一个原始数据类型，也是一个原始值数据
+
+
+
+
+
+
+    // 2. undefined 是全局对象上的一个属性 window.undefined
+    
+    // console.log(window) // window上有undefined这个属性，值为undefiened
+    // console.log(window.undefined)  // undefined
+
+
+
+
+
+
+    // 3. 不可写 writable: false
+    
+    // window.undefined = 1
+    // console.log(window.undefined)  // undefined
+
+
+
+
+
+
+    // 4. 不可配置 configurable: false
+    
+    // delete window.undefined
+    // console.log(window.undefined) // undefined
+
+
+
+
+
+
+    // 5. 不可枚举 enumerable: false
+    
+    // for (let k in window) {
+    //   if(k === undefined) {
+    //     console.log('可枚举')
+    //     console.log(key)
+    //   }else {
+    //     console.log('不可枚举')
+    //   }
+    // }
+    // 打印了214个不可枚举
+
+
+
+
+
+
+    // 6. 不可重新定义
+    
+    // Object.defineProperty(window, 'undefined', {
+    //   enumerable: true,
+    //   writable: true,
+    //   configurable: true
+    // })
+    // 会报错：Uncaught TypeError: Cannot redefine property: undefined
+
+
+
+
+
+
+    // 7. 系统会给一个未赋值的变量自动赋值为undefined，类型也是undefined
+    
+    // var a;
+    // console.log(a); // undefined
+    // console.log(typeof a); // undefined
+
+
+
+
+
+
+    // 8. 参数没有传，也是undefined
+
+    // function test(a) {
+    //   console.log(typeof a) // undefined
+    //   return a
+    // }
+    // console.log(test()) // undefined
+
+
+
+
+
+
+    // 9. undefined 不是Js的保留字和关键字
+    //     所以在函数中undefined可以作为一个变量，并给其赋值（可写）
+    //     但是在window中，undefined不可写
+    //     添加严格模式 'use strict' 也是这个结果
+
+    // function test () {
+    //   var undefined = 1;
+    //   console.log(undefined) // 1
+    // }
+    // test()
+
+
+
+
+
+
+    // 10. undefined和null，在进行比较的时候null会转为undefined，即null == undefined，结果为true
+    
+    // var a;
+    // if(a === undefined) {// 打印true
+    //   console.log(true)
+    // }else {
+    //   console.log(false)
+    // }
+
+    // var b = null;
+    // if(b == undefined) {// 使用==的时候，打印true，其实是不对的，所以这个还是要使用===
+    //   console.log(true)
+    // }else {
+    //   console.log(false)
+    // }
+
+
+
+
+
+
+    
+    // 11. 未声明未赋值的变量，直接打印会报错，
+    //     但是打印它的类型，是undefined，并不会报错
+
+    // console.log(b) // 报错：Uncaught ReferenceError: b is not defined
+    // console.log(typeof b) // undefined
+
+
+
+
+
+    // 注意： in表示a是否在window里面
+
+    // var a;
+    // if('a' in window) { // 打印true
+    //   console.log(true)
+    // }else {
+    //   console.log(false)
+    // }
+    // console.log(window)
+    
+
+
+
+
+
+    // 12. void(0) -> 对0进行求值，返回undefined
+
+    // console.log(void(0)) // undefined, 不管void()括号里面的数字是多少，都返回undefined
+    
+    // 可以使用void(0)阻止a标签的跳转行为
+    // <a href="javascript:void(0)"></a>
+    
+
+
+
+
+
+    // 13. void(0)与undefined
+    //     在window中，两者是相等的
+    //     在函数中，如果undefined被赋值了，那两者就不相等了
+    //     所以说，以前的程序员将void(0),作为严格的undefined，去避免undefined被赋值的情况
+
+    // console.log(void(0) === window.undefined) // true
+
+    function test () {
+      let undefined = 1;
+      console.log(undefined); // 1
+      console.log(void(0)); // undefined
+      console.log(void(0) === undefined) // false
+      console.log(void(0) === window.undefined) // true
+    }
+    test()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!--
  * @Author: your name
- * @Date: 2022-04-09 08:54:54
- * @LastEditTime: 2022-04-09 11:11:34
- * @LastEditors: your name
+ * @Date: 2022-04-09 11:05:01
+ * @LastEditTime: 2022-04-09 11:06:27
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \my_js\6.JS函数\12.作用域和作用域链和预解析.html
+ * @FilePath: \my_js\6.JS函数\13.Function.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +16,10 @@
 </head>
 <body>
   <script>
-  // 预解析：
-  // 就是在浏览器解析代码之前，把变量的声明和函数的声明提前（提升）到该作用域的最上面。
+    function foo() {}
+    console.log(foo.__proto__ === Function.prototype) // true
+    console.log(Object.__proto__ === Function.prototype) //  true
+    console.log(Function.__proto__ === Function.prototype) // true
   </script>
 </body>
 </html>
