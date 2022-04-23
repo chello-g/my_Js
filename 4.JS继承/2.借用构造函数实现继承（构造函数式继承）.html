@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-04-09 08:54:54
- * @LastEditTime: 2022-04-09 09:33:07
+ * @LastEditTime: 2022-04-23 10:21:10
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \my_js\4.JS继承\2.借用构造函数实现继承(构造函数式继承).html
@@ -41,7 +41,7 @@
     // 由于父类中是给this绑定属性的，因此子类自然也就继承了父类的共有属性。
     // 由于这种类型的继承没有涉及原型prototype，所以父类的原型方法自然不会被子类继承，
     // 而如果想要被子类继承就必须要放在构造函数中，这样创建出来的每个实例都会单独拥有一份而不能共用，这就违背了代码复用的原则。
-    // 为了综合这两种模式的有点，就有了组合继承
+    // 为了综合这两种模式的优点，就有了组合继承
     console.log('Student中的this：', this)
     // Person(name, sex, age)  // 这种调用方法，打印出来的Person中的this是window
     Person.call(this, name, sex, age) 
@@ -57,7 +57,7 @@
   // let stu2 = new Student('cc2','男', 24, 90)
   // console.dir(stu1)
   // console.log(stu1.name, stu1.sex, stu1.age, stu1.score)
-  // stu1.eat()  //stu1.eat is not a function, 说明父类级别中的方法不能继承
+  // stu1.eat()  //stu1.eat is not a function, 说明父类级别中的方法不能继承[肯定的啦，有没有改变原型的指向]
   // console.log(stu1.book) // ["book1", "book2"]
   // stu1.book.push('JS设计模式')
   // console.log(stu1.book) //  ["book1", "book2", "JS设计模式"] 

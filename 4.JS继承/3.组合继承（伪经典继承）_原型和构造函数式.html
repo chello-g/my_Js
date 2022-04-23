@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2022-04-09 08:54:54
- * @LastEditTime: 2022-04-09 10:10:30
+ * @LastEditTime: 2022-04-23 10:22:58
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \my_js\4.JS继承\3.组合继承（伪经典继承）_原型和构造函数式.html
@@ -46,7 +46,7 @@
     console.log('study方法')
   }
 
-  // 伪经典继承 伪 在哪？（构造函数复用的问题）
+  // 伪经典继承 [伪] 在哪？（构造函数复用的问题）
   // Person()里面的东西执行了两次：
   // 1.改变原型指向的时候执行了一次(L43)：Student.prototype = new Person() 
   // 2.实例化的时候通过 Person.call(this, name, sex, age)执行了一次(L38)
@@ -67,7 +67,7 @@
   console.log(stu1.book) // ["book1", "book2", "JS设计模式"]
   console.log(stu2.book) // ["book1", "book2"]
 
-  // 组合继承的问题：子类不是父类的实例，而子类的原型式父类的实例
+  // 组合继承的问题：子类不是父类的实例，而子类的原型是父类的实例
   // 解决方案：继承组合式继承
 </script>
 </html>
